@@ -63,7 +63,16 @@
       <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" result="noise"/>
       <feColorMatrix in="noise" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.02 0"/>
     </filter>
+
+    <filter id="headBlur" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="14"/>
+    </filter>
+
+    <clipPath id="headSquareClip">
+      <rect x="54" y="78" width="320" height="320" rx="20"/>
+    </clipPath>
   </defs>
+
 
   <g clip-path="url(#canvasClip)">
     <rect x="0" y="0" width="1180" height="610" fill="url(#bgGrad)"/>
@@ -114,71 +123,47 @@
       <rect x="0" y="0" width="448" height="610" fill="#070B16" opacity="0.55"/>
       <rect x="0" y="0" width="448" height="610" fill="url(#glassPanel)" opacity="0.25"/>
 
+      <!-- Square block containing blurred head silhouette -->
+      <rect x="54" y="78" width="320" height="320" rx="20" fill="url(#glassPanel)" stroke="rgba(255,255,255,0.08)" stroke-width="1" opacity="1">
+        <animate attributeName="opacity" values="0;1" begin="0.1s" dur="0.5s" fill="freeze"/>
+      </rect>
+      <rect x="54" y="78" width="320" height="320" rx="20" fill="none" stroke="url(#accentGrad)" stroke-width="1.2" opacity="0.5"/>
+
+      <g clip-path="url(#headSquareClip)">
+        <g fill="url(#asciiGrad)" filter="url(#headBlur)" opacity="0.9">
+          <animate attributeName="opacity" values="0;0.9" begin="0.3s" dur="1s" fill="freeze"/>
+          <circle cx="214" cy="205" r="66"/>
+          <path d="M 128 398 Q 128 268 214 268 Q 300 268 300 398 Z"/>
+        </g>
+
+        <rect x="54" y="78" width="320" height="2.5" fill="#22D3EE" opacity="0.35">
+          <animate attributeName="y" values="78;396;78" dur="4.5s" repeatCount="indefinite"/>
+        </rect>
+      </g>
+
+      <text x="60" y="66" opacity="1" font-family="'JetBrains Mono','Fira Code',monospace" font-size="10.5" letter-spacing="1.5" fill="#22D3EE">
+        <animate attributeName="opacity" values="0;1" begin="1.3s" dur="0.4s" fill="freeze"/>
+        [ SCANNING... ]
+      </text>
+
       <g font-family="'JetBrains Mono','Fira Code',monospace" font-size="12.6" fill="url(#asciiGrad)" filter="url(#glowFilter)">
-        <animateTransform attributeName="transform" type="translate" values="0,0; 0,-6; 0,0" dur="5s" repeatCount="indefinite"/>
-
-        <text x="46" y="96" opacity="1">
-          <animate attributeName="opacity" values="0;1" begin="0.1s" dur="0.4s" fill="freeze"/>
-          ░░░░░░▒▒▒▓▓▓▓▓▒▒▒░░░░░░
-        </text>
-        <text x="46" y="114" opacity="1">
-          <animate attributeName="opacity" values="0;1" begin="0.4s" dur="0.4s" fill="freeze"/>
-          ░░▒▒▓▓███████████▓▓▒▒░░
-        </text>
-        <text x="46" y="132" opacity="1">
-          <animate attributeName="opacity" values="0;1" begin="0.7s" dur="0.4s" fill="freeze"/>
-          ░▒▓██▓▓▒▒░░░░▒▒▓▓██▓▒░
-        </text>
-        <text x="46" y="150" opacity="1">
-          <animate attributeName="opacity" values="0;1" begin="1.0s" dur="0.4s" fill="freeze"/>
-          ▒▓█▓▒░░  P  A  Y  A  L  ░░▒▓█▒
-        </text>
-        <text x="46" y="168" opacity="1">
-          <animate attributeName="opacity" values="0;1" begin="1.3s" dur="0.4s" fill="freeze"/>
-          ▒▓█▓░░░░░░░░░░░░░░░░░░▓█▒
-        </text>
-        <text x="46" y="186" opacity="1">
-          <animate attributeName="opacity" values="0;1" begin="1.6s" dur="0.4s" fill="freeze"/>
-          ░▓██▓▒▒░░▓▓▓▓▓▓░░▒▒▓██▓░
-        </text>
-        <text x="46" y="204" opacity="1">
-          <animate attributeName="opacity" values="0;1" begin="1.9s" dur="0.4s" fill="freeze"/>
-          ░▒▓█████▓▒░░▒▓█████▓▒░
-        </text>
-        <text x="46" y="222" opacity="1">
-          <animate attributeName="opacity" values="0;1" begin="2.2s" dur="0.4s" fill="freeze"/>
-          ░░▒▓▓███████████▓▓▒░░
-        </text>
-        <text x="46" y="240" opacity="1">
-          <animate attributeName="opacity" values="0;1" begin="2.5s" dur="0.4s" fill="freeze"/>
-          ░░░▒▒▓▓▓▓▓▓▓▓▓▓▒▒░░░
-        </text>
-        <text x="46" y="258" opacity="1">
-          <animate attributeName="opacity" values="0;1" begin="2.8s" dur="0.4s" fill="freeze"/>
-          ░░░░░▒▒▒▒▒▒▒▒▒░░░░░
-        </text>
-
-        <text x="46" y="294" opacity="1" font-size="11.4">
-          <animate attributeName="opacity" values="0;1" begin="3.4s" dur="0.4s" fill="freeze"/>
+        <text x="46" y="428" opacity="1" font-size="11.4">
+          <animate attributeName="opacity" values="0;1" begin="1.7s" dur="0.4s" fill="freeze"/>
           &gt; whoami
         </text>
-        <text x="46" y="312" opacity="1" font-size="11.4">
-          <animate attributeName="opacity" values="0;1" begin="3.7s" dur="0.4s" fill="freeze"/>
+        <text x="46" y="446" opacity="1" font-size="11.4">
+          <animate attributeName="opacity" values="0;1" begin="2.0s" dur="0.4s" fill="freeze"/>
           payalmalley
         </text>
-        <text x="46" y="330" opacity="1" font-size="11.4">
-          <animate attributeName="opacity" values="0;1" begin="4.0s" dur="0.4s" fill="freeze"/>
+        <text x="46" y="464" opacity="1" font-size="11.4">
+          <animate attributeName="opacity" values="0;1" begin="2.3s" dur="0.4s" fill="freeze"/>
           &gt; role: SDE / AI-ML Engineer
         </text>
-        <text x="46" y="348" opacity="1" font-size="11.4">
-          <animate attributeName="opacity" values="0;1" begin="4.3s" dur="0.4s" fill="freeze"/>
+        <text x="46" y="482" opacity="1" font-size="11.4">
+          <animate attributeName="opacity" values="0;1" begin="2.6s" dur="0.4s" fill="freeze"/>
           &gt; status: online<tspan opacity="0"><animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>█</tspan>
         </text>
       </g>
-
-      <rect x="20" y="60" width="410" height="3" fill="#22D3EE" opacity="0.15">
-        <animate attributeName="y" values="60;340;60" dur="4s" repeatCount="indefinite"/>
-      </rect>
 
       <line x1="448" y1="0" x2="448" y2="610" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
     </g>
