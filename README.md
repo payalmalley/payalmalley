@@ -8,11 +8,8 @@
 
 ## 👋 About Me
 
-**Payal** — B.Tech CSE (AI & ML) student at Bahra University, Shimla Hills, HP · `2023–2027`
-
 B.Tech CSE (AI & ML) student with hands-on expertise in Python, Java, DSA, Machine Learning, Deep Learning, NLP, and LLMs. Completed a structured 7-month SDE + AI/ML roadmap covering Full Stack Development, System Design, SQL, and MLOps. Seeking a role as Software Engineer or AI/ML Engineer to build intelligent, scalable, production-ready AI systems.
 
-📍 Una, Himachal Pradesh, India
 ✉️ [payalmalley3366@gmail.com](mailto:payalmalley3366@gmail.com)
 🔗 [github.com/payalmalley](https://github.com/payalmalley) · [linkedin.com/in/payaldev](https://linkedin.com/in/payaldev)
 
